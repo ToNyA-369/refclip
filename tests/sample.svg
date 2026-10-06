@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="640" viewBox="0 0 960 640">
+<rect width="960" height="640" fill="#e8dcc5"/>
+<path d="M0 420 180 185 312 321 482 132 740 340 870 228 960 337V640H0Z" fill="#98a18b"/>
+<path d="m0 490 248-204 256 168 118-127 338 139v174H0Z" fill="#657d71"/>
+<path d="M0 575q230-180 433-35t527-46v146H0Z" fill="#324e47"/>
+<path d="M520 388q-166 121-18 138t-109 114h155q212-103 37-129t-26-123" fill="#c4d0bb"/>
+<circle cx="772" cy="132" r="47" fill="#d0a275"/>
+<g fill="none" stroke="#455e50" stroke-width="3" opacity=".5"><path d="m29 465 149-207 70 62M360 304l123-130 114 144M757 341l101-79 87 90"/></g>
+<g fill="#30453b"><path d="m138 537 24-143 31 143zM92 562l20-111 25 111zM801 551l27-142 35 142z"/></g>
+<text x="38" y="49" font-family="serif" font-size="17" fill="#65765f" letter-spacing="5">LANDSCAPE STUDY / 01</text>
+</svg>

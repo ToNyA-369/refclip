@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "RefClip｜參考圖收集器",
+  "version": "0.7.1",
+  "description": "晃動收圖或快捷鍵框選網頁截圖，加上標籤後收藏到指定的本機素材資料夾。",
+  "minimum_chrome_version": "109",
+  "permissions": ["downloads", "storage", "nativeMessaging", "activeTab"],
+  "commands": {
+    "capture-image": {"suggested_key": {"default": "Alt+Shift+S", "mac": "Command+Shift+S"}, "description": "框選網頁截圖並加上標籤"}
+  },
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "options_ui": {"page": "options.html", "open_in_tab": true},
+  "background": {"service_worker": "background.js"},
+  "action": {"default_popup": "popup.html", "default_title": "RefClip 設定"},
+  "content_scripts": [{
+    "matches": ["http://*/*", "https://*/*"],
+    "js": ["shared.js", "tag-editor.js", "screenshot-selector.js", "content.js"],
+    "run_at": "document_idle",
+    "all_frames": true
+  }]
+}

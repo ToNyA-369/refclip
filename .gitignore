@@ -1,0 +1,6 @@
+native/test-build/
+native/test-output/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

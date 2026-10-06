@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>RefClip</title><link rel="stylesheet" href="popup.css"></head>
+<body><header><div class="mark">↔</div><div><h1>RefClip</h1><p>收圖、截圖、打標，一次完成。</p></div></header>
+<form id="settings"><label class="toggle"><span>啟用收圖手勢</span><input type="checkbox" id="enabled"></label>
+<label for="folder">Chrome 下載模式子資料夾</label><input id="folder" type="text" required maxlength="160" placeholder="DrawingReferences" spellcheck="false"><p id="destination" class="help"></p><button id="options" class="secondary" type="button">儲存位置與標籤設定…</button>
+<label for="holdMs">長按時間 <output id="holdValue"></output></label><input id="holdMs" type="range" min="200" max="1000" step="50">
+<label for="distance">晃動幅度 <output id="distanceValue"></output></label><input id="distance" type="range" min="12" max="60" step="2"><p class="help">數值越小，越容易觸發。</p>
+<button type="submit">儲存設定</button><p id="status" role="status" aria-live="polite"></p></form>
+<aside><b>按住 → 左右晃 → 投放 → 打標儲存</b><p>投放區在游標處出現後固定。放在區外或按 Esc 取消；投放後填標籤，Tab 換欄。</p></aside>
+<p id="last" class="help"></p><button id="downloads" class="secondary" type="button">查看下載紀錄</button>
+<footer>圖片直接存到電腦；不另傳送至雲端服務。</footer><script src="shared.js"></script><script src="popup.js"></script></body></html>

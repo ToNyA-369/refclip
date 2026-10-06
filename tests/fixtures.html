@@ -1,0 +1,8 @@
+<!doctype html><html lang="zh-Hant"><meta charset="utf-8"><title>RefClip 手動驗收</title>
+<style>body{font:18px system-ui;padding:40px}section{display:inline-block;padding:30px;margin:15px;background:#eee}img{width:160px;height:160px;image-rendering:pixelated}p{max-width:800px}</style>
+<h1>RefClip 手動驗收</h1><p>此頁須經 HTTP 開啟（不支援 file://）。三張圖片內容相同；各長按、左右晃動、投進游標處的區域，再填標籤並儲存，確認設定位置的三個 PNG 檔案。登入圖片請另外在自己的實際網站測試。</p>
+<section><h2>HTTP 圖片</h2><img id="http" src="/pixel.png"></section>
+<section><h2>data 圖片</h2><img id="data"></section><section><h2>blob 圖片</h2><img id="blob"></section>
+<script>const raw='iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jRZkAAAAASUVORK5CYII=';
+document.getElementById('data').src='data:image/png;base64,'+raw;
+document.getElementById('blob').src=URL.createObjectURL(new Blob([Uint8Array.from(atob(raw),c=>c.charCodeAt(0))],{type:'image/png'}));</script></html>
