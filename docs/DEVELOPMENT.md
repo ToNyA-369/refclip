@@ -33,7 +33,7 @@ Windows 的第二行可用 `py -3 tests/macos_host_test.py`。Node 的 Windows �
 - 新增 `Extension context invalidated` 同步拋錯處理、表單歷史回覆隔離、前後綴原樣保留與平台字元限制測試。
 - JavaScript 語法檢查通過。
 
-`.github/workflows/test.yml` 配置 Windows 與 macOS runner；尚未推送，因此 CI 配置不代表 macOS 實測通過。Chrome 的載入、快捷鍵、登入來源、系統選擇器與重啟仍需實機驗收。
+2026-10-06 首次公開推送的 macOS runner 已通過 JavaScript 測試及全部 9 項 Python 主機測試，包含真實原生訊息程序、磁碟寫入、符號連結拒絕與目的地替換檢查。Windows runner 的 50 項 Node 測試通過；Python 測試發現中文路徑測試資料依賴預設編碼，已改為明確 UTF-8。最新執行狀態見 [GitHub Actions](https://github.com/ToNyA-369/refclip/actions)。Chrome 的載入、快捷鍵、登入來源、系統選擇器與重啟仍需實機驗收；測試中的系統選擇器使用模擬回覆。
 
 ## 瀏覽器測試頁
 

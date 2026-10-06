@@ -29,7 +29,7 @@ class MacHostTests(unittest.TestCase):
         self.addCleanup(self.temp.cleanup)
         self.home = Path(self.temp.name)
         self.folder = self.home / "參考圖"; self.folder.mkdir()
-        (self.home / "host.json").write_text(json.dumps({"allowed_origins": [ORIGIN]}))
+        (self.home / "host.json").write_text(json.dumps({"allowed_origins": [ORIGIN]}), encoding="utf-8")
         (self.home / f"folder-{ID}.txt").write_text(str(self.folder), encoding="utf-8")
         self.client = host.Host(self.home, ORIGIN); self.addCleanup(self.client.cleanup)
 
@@ -69,7 +69,7 @@ class MacHostTests(unittest.TestCase):
         with self.assertRaises(ValueError): self.client.handle({"op":"commit"})
         with self.assertRaises(ValueError): self.client.handle({"op":"chunk","data":"%%%"})
         self.client.cleanup();self.assertFalse(any(self.folder.glob("*.part")))
-        self.client.config.write_text(str(self.folder / "missing"))
+        self.client.config.write_text(str(self.folder / "missing"), encoding="utf-8")
         with self.assertRaises(ValueError): self.client.handle({"op":"status"})
 
     def test_picker_cancel_and_selection_are_fixed_commands(self):
@@ -83,13 +83,13 @@ class MacHostTests(unittest.TestCase):
 
     def test_installer_preserves_folder_and_ids_and_uninstall_keeps_images(self):
         destination=setup.install(ID,self.home,ROOT / "native/macos")
-        settings=destination / f"folder-{ID}.txt";settings.write_text(str(self.folder))
+        settings=destination / f"folder-{ID}.txt";settings.write_text(str(self.folder), encoding="utf-8")
         setup.install("b"*32,self.home,ROOT / "native/macos")
-        self.assertEqual(settings.read_text(),str(self.folder))
-        manifest=json.loads((destination / "host.json").read_text())
+        self.assertEqual(settings.read_text(encoding="utf-8"),str(self.folder))
+        manifest=json.loads((destination / "host.json").read_text(encoding="utf-8"))
         self.assertEqual(len(manifest["allowed_origins"]),2)
         prefs=self.home / "chrome/Profile 1";prefs.mkdir(parents=True)
-        (prefs / "Preferences").write_text(json.dumps({"extensions":{"settings":{ID:{"path":str(ROOT)}}}}))
+        (prefs / "Preferences").write_text(json.dumps({"extensions":{"settings":{ID:{"path":str(ROOT)}}}}), encoding="utf-8")
         self.assertEqual(setup.detect_ids(prefs.parent,ROOT),[ID])
         collected=Path(self.save()["path"]);setup.uninstall(self.home)
         self.assertTrue(collected.exists());self.assertFalse(destination.exists())

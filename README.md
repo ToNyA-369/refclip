@@ -194,4 +194,4 @@ node --test tests/*.test.cjs
 python3 tests/macos_host_test.py
 ```
 
-目前本機通過 50 項 JavaScript／Windows 測試，以及 6 項 Python 可攜式測試。配置了 Windows／macOS GitHub Actions，尚未推送執行。測試頁使用的模擬 Chrome API 不等於 Chrome 實機驗收。完整流程見 [開發文件](docs/DEVELOPMENT.md)。
+目前本機通過 50 項 JavaScript／Windows 測試，以及 6 項 Python 可攜式測試。[GitHub Actions](https://github.com/ToNyA-369/refclip/actions) 在 Windows／macOS 執行跨平台測試；macOS 已通過 9 項 Python 主機測試，包含真實訊息程序與磁碟寫入。測試頁使用的模擬 Chrome API 不等於 Chrome 實機驗收。完整流程見 [開發文件](docs/DEVELOPMENT.md)。
